@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ccms-project
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn ccms_project.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: ccms_project.settings
+    staticPublishPath: static/
+    autoDeploy: true
