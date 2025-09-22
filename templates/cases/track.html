@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Track Case{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Track a case</h2>
+  <form method="post">{% csrf_token %}
+    <label>Tracking ID</label>
+    <input name="tracking_id" required>
+    <button class="btn" type="submit">Find</button>
+  </form>
+  {% if case %}
+    <hr>
+    <h3>Result</h3>
+    <p><strong>{{ case.tracking_id }}</strong> - {{ case.status }}</p>
+    <a href="{% url 'case_detail' case.pk %}">View details (limited)</a>
+  {% endif %}
+</div>
+{% endblock %}

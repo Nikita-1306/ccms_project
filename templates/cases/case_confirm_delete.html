@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Confirm Delete{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Confirm Delete: {{ case.tracking_id }}</h2>
+  <form method="post">{% csrf_token %}
+    <button class="btn" type="submit">Confirm Delete</button>
+    <a href="{% url 'my_cases' %}">Cancel</a>
+  </form>
+</div>
+{% endblock %}

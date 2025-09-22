@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Case Public View{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>{{ case.tracking_id }}</h2>
+  <p><strong>Status:</strong> {{ case.status }}</p>
+  <p><strong>Created:</strong> {{ case.created_at }}</p>
+  {% if case.evidence_image %}<p><img src="{{ case.evidence_image.url }}" style="max-width:300px"></p>{% endif %}
+</div>
+{% endblock %}

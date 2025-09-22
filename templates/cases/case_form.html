@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Report Case{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>{% if edit %}Edit Case{% else %}Report a Case{% endif %}</h2>
+  <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">{% if edit %}Update{% else %}Submit{% endif %}</button>
+  </form>
+</div>
+{% endblock %}

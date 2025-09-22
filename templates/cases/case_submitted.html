@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Case Submitted{% endblock %}
+{% block content %}
+  <div class="card">
+    <h2>Submitted</h2>
+    <p>Your case has been submitted. Tracking ID: <strong>{{ case.tracking_id }}</strong></p>
+    <a class="btn" href="{% url 'my_cases' %}">My Cases</a>
+    <a class="btn" href="{% url 'download_report' case.id %}">Download Report (PDF)</a>
+
+  </div>
+{% endblock %}

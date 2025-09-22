@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+  <div class="card">
+    <h2>Welcome to CCMS</h2>
+    <p>Report and track cyber-crime incidents.</p>
+  </div>
+  <div class="card">
+    <h3>Actions</h3>
+    <a class="btn" href="{% url 'case_create' %}">Report a Crime</a>
+    <a class="btn" href="{% url 'track_case' %}">Track Case</a>
+  </div>
+{% endblock %}

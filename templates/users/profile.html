@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Profile: {{ user.username }}</h2>
+  <p>Email: {{ user.email }}</p>
+  <h3>Your cases</h3>
+  {% for c in cases %}
+    <div class="card">
+      <strong>{{ c.tracking_id }}</strong> - {{ c.crime_type }} - {{ c.status }}<br>
+      <a href="{% url 'case_detail' c.pk %}">View</a>
+      {% if c.status == 'New' %} | <a href="{% url 'case_edit' c.pk %}">Edit</a> | <a href="{% url 'case_delete' c.pk %}">Delete</a>{% endif %}
+    </div>
+  {% empty %}<p>No cases yet.</p>{% endfor %}
+</div>
+{% endblock %}
